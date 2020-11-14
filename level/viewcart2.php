@@ -6,7 +6,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Class Schedule</title>
+<title>View Cart</title>
 
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 
@@ -66,6 +66,7 @@ body {
   float: right;
 }
 
+
 @media screen and (max-width: 500px) {
   .header a {
     float: none;
@@ -75,34 +76,45 @@ body {
   .header-right {
     float: none;
   }
-}
-
-#customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+  .block {
+    display: block;
     width: 100%;
+    border: none;
+    background-color: #FF0000;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+    .block:hover {
+    background-color: #ddd;
+    color: black;
 }
 
-#customers td, #customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-#customers tr:nth-child(odd){background-color: #f2f2f2;}
-
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-    padding-top: 12px;
+table{
+		font-family: arial,sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+}
+td,th{
+		border: 1px solid #000000;
+		text-align:center;
+		padding:8px;
+}
+th{
+		padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
     background-color: #4CAF50;
     color: white;
 }
-
+td{
+		background-color:#dddddd;
+}
 </style>
+</head>
 
 <body>
     
@@ -114,48 +126,41 @@ body {
     <a href="#about">About</a>
   </div>
 </div>
- 
-<h1>Class Schedule</h1>
-
-<table id="customers">
-  <tr>
-    <th>Subject</th>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Classroom</th>
-    <th>Enroll</th>
     
-  </tr>
-  
+<h1>View Cart</h1>
+<br/>
 
-<?php
-$query = "SELECT * FROM class_detail WHERE categoryID =1";
-$result = mysqli_query($mysqli,$query);
-$x=1;
-while($row=mysqli_fetch_array($result)){
-	
-	$classID = $row['classID'];
-	$subject_title = $row['subject_title'];
-	$teacherID = $row['teacherID'];
-	$categoryID = $row['categoryID'];
-	$dateID = $row['dateID'];
-	$timeID = $row['timeID'];
-	$classroom_name = $row['classroom_name'];
-?>
+<table>
+<tr>
+<th>No.</th>
+<th>Subject</th>
+<th>Date</th>
+<th>Time</th>
+<th>Price</th>
+<th>Action</th>
+</tr>
 
-    <tr>
-    <td><?php echo $subject_title;?></td>
-    <td><?php echo $dateID;?></td>
-    <td><?php echo $categoryID;?></td>
-    <td><?php echo $classroom_name;?></td>
-    <td><a href="addtocart.php?id=<?php echo $classID;?>" class="btn">Select</a></td>
-  </tr>
+<tr>
+<td>1</td>
+<td>Science</td>
+<td>Sunday</td>
+<td>11:00am-13:00pm</td>
+<td>RM60</td>
+<td>Delete</td>
+</tr>
 
-<?php
-$x++;
-} //close here for looping
-?>
+<td>2</td>
+<td>Mathematics</td>
+<td>Sartuday</td>
+<td>16:00pm-18:00pm</td>
+<td>RM60</td>
+<td>Delete</td>
+</tr>
+
 </table>
+<center><h1>TOTAL: RM120</h1></center>
+<center><button type="button" class="block"><h1>Select Another Class</h1></button></center>
+<center><button type="button" class="block"><h1>Payment</h1></button></center>
 
 </body>
 </html>

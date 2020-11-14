@@ -127,34 +127,50 @@ body {
     
   </tr>
   
-
-<?php
-$query = "SELECT * FROM class_detail WHERE categoryID =1";
-$result = mysqli_query($mysqli,$query);
-$x=1;
-while($row=mysqli_fetch_array($result)){
-	
-	$classID = $row['classID'];
-	$subject_title = $row['subject_title'];
-	$teacherID = $row['teacherID'];
-	$categoryID = $row['categoryID'];
-	$dateID = $row['dateID'];
-	$timeID = $row['timeID'];
-	$classroom_name = $row['classroom_name'];
-?>
-
-    <tr>
-    <td><?php echo $subject_title;?></td>
-    <td><?php echo $dateID;?></td>
-    <td><?php echo $categoryID;?></td>
-    <td><?php echo $classroom_name;?></td>
-    <td><a href="addtocart.php?id=<?php echo $classID;?>" class="btn">Select</a></td>
+    <td>Science</td>
+    <td>Wednesday</td>
+    <td>19:00pm-21:00pm</td>
+    <td>B</td>
+    <td>Select</td>
+  </tr>
+  
+    <td>Bahasa Malaysia</td>
+    <td>Sartuday</td>
+    <td>14:00pm-16:00pm</td>
+    <td>B</td>
+    <td>Select</td>
+    
+  </tr>
+  
+    <td>Science</td>
+    <td>Sunday</td>
+    <td>11:00am-13:00pm</td>
+    <td>D</td>
+    <td>Select</td>
   </tr>
 
-<?php
-$x++;
-} //close here for looping
-?>
+    <td>English</td>
+    <td>Wednesday</td>
+    <td>19:00pm-21:00pm</td>
+    <td>A</td>
+    <td>Select</td>
+  </tr>
+  
+    <td>Mathematics</td>
+    <td>Sartuday</td>
+    <td>16:00pm-18:00pm</td>
+    <td>C</td>
+    <td>Select</td>
+    
+  </tr>
+  
+    <td>Science</td>
+    <td>Sunday</td>
+    <td>14:00pm-16:00pm</td>
+    <td>E</td>
+    <td>Select</td>
+  </tr>
+  
 </table>
 
 </body>
